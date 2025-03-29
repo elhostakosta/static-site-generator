@@ -43,6 +43,8 @@ class TestHTMLNode(unittest.TestCase):
 
     def test_to_html_without_a_tag(self):
         leaf_node = LeafNode(None, "I'm a value without tags")
+        leaf_node2 = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
+        self.assertEqual(leaf_node2.to_html(), '<a href="https://www.google.com">Click me!</a>')
         self.assertEqual(leaf_node.to_html(), "I'm a value without tags")
 
 if __name__ == "__main__":
