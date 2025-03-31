@@ -23,7 +23,7 @@ class TestHTMLNode(unittest.TestCase):
         properties = {"class": "main-paragraph", "align": "center"}
         html_node = HTMLNode()
         html_node.props = properties
-        properties_string = 'class="main-paragraph" align="center"'
+        properties_string = ' class="main-paragraph" align="center"'
         self.assertEqual(html_node.props_to_html(), properties_string)
 
     def test_props_to_html_without_value(self):

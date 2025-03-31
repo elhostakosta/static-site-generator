@@ -15,8 +15,8 @@ class HTMLNode:
             return html_attributes
 
         for prop in self.props:
-            html_attributes += f'{prop}="{self.props[prop]}" '
-        html_attributes = html_attributes.rstrip(" ")
+            html_attributes += f' {prop}="{self.props[prop]}"'
+        
         return f"{html_attributes}"
 
     def __repr__(self):
@@ -33,10 +33,7 @@ class LeafNode(HTMLNode):
             raise ValueError("Invalid HTML")
         if self.tag is None:
             return self.value
-        elif self.props == None:
-            return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
-        else:
-            return f"<{self.tag} {self.props_to_html()}>{self.value}</{self.tag}>"
+        return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
 
     def __repr__(self):
         return f"LeafNode({self.tag}, {self.value}, {self.props})"
