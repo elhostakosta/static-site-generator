@@ -57,5 +57,3 @@ class ParentNode(HTMLNode):
                 html_format += child.to_html()
 
             return f"<{self.tag}>{html_format}</{self.tag}>"
-
-        
