@@ -14,9 +14,10 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                     raise ValueError("The matching closing delimiter is not found!")
                 else:
                     for i in range(0, len(splitted_list)):
-                        if (i % 2 == 0):
-                            splitted_list[i] = TextNode(splitted_list[i], TextType.TEXT)
-                        else:
-                            splitted_list[i] = TextNode(splitted_list[i], text_type)
+                        if splitted_list[i] != "":
+                            if (i % 2 == 0):
+                                splitted_list[i] = TextNode(splitted_list[i], TextType.TEXT)
+                            else:
+                                splitted_list[i] = TextNode(splitted_list[i], text_type)
                     new_nodes.extend(splitted_list)
     return new_nodes
